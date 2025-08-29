@@ -3,6 +3,7 @@ const router = express.Router();
 const userController = require("../controllers/user.controller");
 const Joi = require("joi");
 const authenticateToken = require("../middleware/auth");
+const adminPermisson = require("../middleware/adminPermission");
 
 // Schema Joi
 const userSchema = Joi.object({
@@ -39,7 +40,7 @@ function validateUser(req, res, next) {
 router.get("/", authenticateToken, userController.getUsers);
 router.get("/:id", authenticateToken, userController.getUserById);
 router.post("/", authenticateToken, validateUser, userController.createUser);
-router.put("/:id", authenticateToken, validateUser, userController.updateUser);
-router.delete("/:id", authenticateToken, userController.deleteUser);
+router.put("/:id", authenticateToken, adminPermisson, validateUser, userController.updateUser);
+router.delete("/:id", authenticateToken,,adminPermisson, userController.deleteUser);
 
 module.exports = router;

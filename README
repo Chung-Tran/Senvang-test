@@ -1,0 +1,12 @@
+BÀI TEST QUẢN LÝ NGƯỜI DÙNG
+Tech stack: 
+- Client: ReactJS, sử dụng thư viện axios để gọi API, react-query để caching api query, thư viện Ant design để hỗ trợ xây giao diện
+- Server: Nodejs, 
+- Database: Redis, Postgre( dùng sequelize), 
+- Service: Kafka. Có setup ElasticSearch nhưng không làm kịp
+- Build tools: Docker
+
+Các bước chạy project:
+- Đảm bảo máy có sử dụng docker.
+- Build docker-compose: docker compose build . (Đã setup config FrontEnd, Backend, kafka, ElasticSearch, Postgre, Redis trong file docker-compose)
+- Sau khi build thành công truy cập project bằng localhost:3000 (Đã expose cổng FE)
